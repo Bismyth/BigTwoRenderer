@@ -1,4 +1,4 @@
-cs = {};
+cs = [];
 suit = 'DCHS';
 number = '34567890JQKA2';
 cards = {}
@@ -20,12 +20,12 @@ function setup(){
     for (var x = 0; x<4; x++){
         players.push(new Player(x))
     }
-    player[0].cards = ['JH','9S']
+    players[0].cards = ['JH','9S']
 
 }
 
 function draw(){
-    player[0].display()
+    players[0].display()
 }
 function Card(v,s){
     this.value = v;
