@@ -2,20 +2,20 @@ cs = {};
 suits = 'DCHS';
 number = '34567890JQKA2';
 cards = {}
-function preload(){
-    for (x = 0; x<52; x++){
-        cs[number[floor(x/4)]+suits[x%4]] = (loadImage('cards/'+number[floor(x/4)]+suits[x%4]+'.png'))
-    }
-}
+// function preload(){
+//     for (x = 0; x<52; x++){
+//         cs[number[floor(x/4)]+suits[x%4]] = (loadImage('cards/'+number[floor(x/4)]+suits[x%4]+'.png'))
+//     }
+// }
 
 function setup(){
     createCanvas(500,500);
     player = new Player();
-    player.cards = [new Card('JH')]
+    //player.cards = [new Card('JH')]
 }
 
 function draw(){
-    player.display()
+    //player.display()
 }
 function Card(v){
     this.value = v;
