@@ -5,7 +5,7 @@ cards = {}
 players = []
 function preload(){
     for (var x = 0; x<52; x++){
-        cs.push(loadImage('cards/'+number[floor(x/4)]+suits[x%4]+'.png'))
+        cs.push(loadImage('cards/'+number[floor(x/4)]+suit[x%4]+'.png'))
     }
 }
 
