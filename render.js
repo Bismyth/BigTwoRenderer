@@ -1,17 +1,41 @@
-cs = [];
+cs = {};
 suits = 'DCHS';
 number = '34567890JQKA2';
+cards = {}
 function preload(){
     for (x = 0; x<52; x++){
-        cs.push(loadImage('cards/'+number[floor(x/4)]+suits[x%4]+'.png'))
+        cs[number[floor(x/4)]+suits[x%4]] = (loadImage('cards/'+number[floor(x/4)]+suits[x%4]+'.png'))
     }
 }
 
 function setup(){
-    createcanvas(500,500);
-    console.log(cs)
+    createCanvas(500,500);
+    player = new Player();
+    player.cards = ['JH']
 }
 
 function draw(){
-
+    player.display()
 }
+function Card(v){
+    this.value = v;
+
+    this.draw = function (x,y) {
+        image(cs[this.value],x,y)
+    }
+}
+
+function Container () {
+    this.cards = [];
+}
+
+function Player () {
+    Container.call(this);
+
+    this.x = 0;
+    this.y = 0;
+    this.display = function () {
+        this.cards.forEach(x => x.draw(10,10))
+    }
+}
+
