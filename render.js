@@ -11,7 +11,7 @@ function preload(){
 function setup(){
     createCanvas(500,500);
     player = new Player();
-    player.cards = ['JH']
+    player.cards = [new Card('JH')]
 }
 
 function draw(){
