@@ -40,7 +40,7 @@ function Card(v,s){
     this.source = s;
     this.x = 0;
     this.y = 0;
-    this.display = function (x,y) {
+    this.draw = function (x,y) {
         image(this.source,this.x = x,this.y = y)
     }
 }
@@ -55,9 +55,9 @@ function Player (n) {
 }
 function Centre(){
     this.card = '';
-    this.draw = function(){
+    this.display = function(){
         if (this.card.length > 0) {
-            image(cards[this.card],canvsize[0]/2,canvsize[1]/2)
+            cards[this.card].draw(canvsize[0]/2,canvsize[1]/2);
         }
     }
 }
