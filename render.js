@@ -10,7 +10,6 @@ function preload(){
         cs.push(loadImage('cards/'+number[floor(x/4)]+suit[x%4]+'.png'))
     }
 }
-
 function setup(){
     createCanvas(canvsize[0],canvsize[1]);
     for (var x = 0; x<13; x++){
@@ -29,8 +28,9 @@ function setup(){
 x = 0
 y = 0
 function draw(){
-    if(nword){
-        players[0].display();
+    background(7,99,36);
+    if(actions.length > 0){
+        actions.forEach(x => x.update())
     }
 }
 function Card(v,s){
@@ -42,11 +42,6 @@ function Card(v,s){
         image(this.source,this.x = x,this.y = y)
     }
 }
-
-function Container () {
-    this.cards = [];
-}
-
 function Player (n) {
     Container.call(this);
 
@@ -65,14 +60,19 @@ function Centre(){
         }
     }
 }
-
-// function playcard(loc,card){
-//     this.card
-// }
-function play(player,card){
+function play(player,card,speed){
     player.hand = player.hand.filter(function(value){return value != card;});
-    actions.push()
+    actions.push(new Mover(card,speed));
 }
-function mover(card,speed){
-    //this.xp = 
+function Mover(card,speed){
+    this.card = card.value;
+    this.x = card.x;
+    this.y = card.y;
+    this.mx = (canvsize[0] - card.x)/(60*(1/speed));
+    this.my = (canvsize[1] - card.y)/(60*(1/speed));
+    this.update = function(){
+        this.x += this.mx;
+        this.y += this.my;
+        cards[this.card].draw(this.x,this.y)
+    }
 }
