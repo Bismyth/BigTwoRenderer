@@ -24,7 +24,6 @@ function setup(){
     }
     players[0].cards = ['JH','9S']
     pile = new Centre();
-    pile.card = 'JH'
 }
 x = 0
 y = 0
@@ -34,6 +33,7 @@ function draw(){
         actions.forEach(x => x.update());
     }
     players.forEach(x => x.display());
+    pile.display();
 }
 function Card(v,s){
     this.value = v;
@@ -71,12 +71,15 @@ function Mover(card,speed){
     this.y = card.y;
     this.mx = (canvsize[0] - card.x)/(60*(1/speed));
     this.my = (canvsize[1] - card.y)/(60*(1/speed));
+    this.exist = 60*(1/speed);
     this.update = function(){
         this.x += this.mx;
         this.y += this.my;
         cards[this.card].draw(this.x,this.y);
-        if(this.x == canvsize[0] && this.y == canvsize[1]){
+        this.exist --;
+        if(this.exist < 0){
             actions = actions.filter(function(value){return value != this;});
+            pile.card = this.card;
         }
     }
 }
