@@ -24,10 +24,6 @@ function setup(){
     for (var x = 0; x<4; x++){
         players.push(new Player(x));
     }
-    players[0].cards = ['JH','9S'];
-    players[1].cards = ['0H','JS'];
-    players[2].cards = ['AC','2D'];
-    players[3].cards = ['KD','0C'];
     pile = new Centre();
     //cent = [(canvsize[0]-cs[0].width)/2,(canvsize[1]-cs[0].height)/2];
     cent = [700,700];
@@ -80,7 +76,7 @@ function Mover(card){
     this.mx = (cent[0] - card.x)/speed;
     this.my = (cent[1] - card.y)/speed;
     this.exist = speed;
-    console.log(this.x,this,y,this.mx,this.my,this.exist);
+    console.log(this,actions[0]);
     this.update = function(){
         this.x += this.mx;
         this.y += this.my;
