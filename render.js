@@ -60,7 +60,7 @@ function Centre(){
     this.card = '';
     this.display = function(){
         if (this.card.length > 0) {
-            cards[this.card].draw(canvsize[0]/2,canvsize[1]/2);
+            cards[this.card].draw(cent[0],cent[1]);
         }
     }
 }
@@ -72,8 +72,8 @@ function Mover(card){
     this.card = card.value;
     this.x = card.x;
     this.y = card.y;
-    this.mx = (canvsize[0]/2 - card.x)/speed;
-    this.my = (canvsize[1]/2 - card.y)/speed;
+    this.mx = (cent[0] - card.x)/speed;
+    this.my = (cent[1] - card.y)/speed;
     this.exist = speed;
     console.log(this.x,this,y,this.mx,this.my,this.exist);
     this.update = function(){
