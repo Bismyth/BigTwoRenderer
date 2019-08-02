@@ -3,7 +3,7 @@ suit = 'DCHS';
 number = '34567890JQKA2';
 cards = {}
 players = []
-canvsize = [800,800];
+canvsize = [600,600];
 cent = [];
 nword = true;
 actions = [];
@@ -29,7 +29,7 @@ function setup(){
     players[1].cards = ['7S','4C'];
     players[2].cards = ['2S','5C'];
     players[3].cards = ['3S','6C'];
-    cent = [(canvsize[0]-cs[0].width)/2,(canvsize[1]-cs[0].height)/2];
+    cent = [(canvsize[0]-cs[0].width/2)/2,(canvsize[1]-cs[0].height/2)/2];
 }
 x = 0
 y = 0
@@ -39,8 +39,7 @@ function draw(){
         actions.forEach(x => x.update());
     }
     pile.display();
-    players.forEach(x => x.display(), rotateZ(90));
-    
+    players.forEach(x => x.display());
 }
 function Card(v,s){
     this.value = v;
@@ -48,7 +47,7 @@ function Card(v,s){
     this.x = 0;
     this.y = 0;
     this.draw = function (x,y) {
-        image(this.source,this.x = x,this.y = y)
+        image(this.source,this.x = x,this.y = y,this.source.width/2,this.source.height/2)
     }
 }
 function Player (n) {
