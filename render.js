@@ -3,28 +3,30 @@ suit = 'DCHS';
 number = '34567890JQKA2';
 cards = {}
 players = []
-canvsize = [500,500]
+canvsize = [500,500];
+cent = [];
 nword = true;
 actions = [];
-speed = 80;
+speed = 40;
 function preload(){
     for (var x = 0; x<52; x++){
-        cs.push(loadImage('cards/'+number[floor(x/4)]+suit[x%4]+'.png'))
+        cs.push(loadImage('cards/'+number[floor(x/4)]+suit[x%4]+'.png'));
     }
 }
 function setup(){
     createCanvas(canvsize[0],canvsize[1]);
     for (var x = 0; x<13; x++){
         for (var y = 0; y<4; y++){
-            val = number[x]+suit[y]
-            cards[val] = new Card(val,cs[x*4+y])
+            val = number[x]+suit[y];
+            cards[val] = new Card(val,cs[x*4+y]);
         }
     }
     for (var x = 0; x<4; x++){
-        players.push(new Player(x))
+        players.push(new Player(x));
     }
-    players[0].cards = ['JH','9S']
+    players[0].cards = ['JH','9S'];
     pile = new Centre();
+    cent = [(canvsize[0]-cs[0].width),(canvsize[1]-cs[0].height)];
 }
 x = 0
 y = 0
