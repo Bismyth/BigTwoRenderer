@@ -41,6 +41,7 @@ function draw(){
     }
     pile.display();
     players.forEach(x => x.display());
+    cards['AH'].draw(0,0);
 }
 function Card(v,s){
     this.value = v;
