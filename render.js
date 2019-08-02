@@ -43,8 +43,7 @@ function Card(v,s){
     }
 }
 function Player (n) {
-    Container.call(this);
-
+    this.cards = []
     this.x = 0;
     this.y = 0;
     this.pn = n;
