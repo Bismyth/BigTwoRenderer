@@ -32,11 +32,13 @@ x = 0
 y = 0
 function draw(){
     background(7,99,36);
+    rotate(PI/4);
     if(actions.length > 0){
         actions.forEach(x => x.update());
     }
-    players.forEach(x => x.display());
     pile.display();
+    players.forEach(x => x.display());
+    
 }
 function Card(v,s){
     this.value = v;
