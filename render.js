@@ -26,7 +26,7 @@ function setup(){
     }
     players[0].cards = ['JH','9S'];
     pile = new Centre();
-    cent = [(canvsize[0]-cs[0].width)/2,(canvsize[1]/2-cs[0].height)/2];
+    cent = [(canvsize[0]-cs[0].width)/2,(canvsize[1]-cs[0].height)/2];
 }
 x = 0
 y = 0
