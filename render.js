@@ -69,15 +69,16 @@ function Mover(card,speed){
     this.card = card.value;
     this.x = card.x;
     this.y = card.y;
-    this.mx = (canvsize[0] - card.x)/(60*(1/speed));
-    this.my = (canvsize[1] - card.y)/(60*(1/speed));
+    this.mx = (canvsize[0]/2 - card.x)/(60*(1/speed));
+    this.my = (canvsize[1]/2 - card.y)/(60*(1/speed));
     this.exist = 60*(1/speed);
+    console.log(this.x,this,y,this.mx,this.my,this.exist);
     this.update = function(){
         this.x += this.mx;
         this.y += this.my;
         cards[this.card].draw(this.x,this.y);
         this.exist --;
-        if(this.exist < 0){
+        if(this.exist <= 0){
             actions = actions.filter(function(value){return value != this;});
             pile.card = this.card;
         }
