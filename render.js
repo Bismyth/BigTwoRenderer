@@ -74,5 +74,5 @@ function play(player,card){
     actions.push()
 }
 function mover(card,speed){
-    this.xp = 
+    //this.xp = 
 }
