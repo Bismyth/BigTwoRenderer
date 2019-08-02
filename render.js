@@ -40,7 +40,7 @@ function Card(v,s){
     this.source = s;
     this.x = 0;
     this.y = 0;
-    this.draw = function (x,y) {
+    this.display = function (x,y) {
         image(this.source,this.x = x,this.y = y)
     }
 }
