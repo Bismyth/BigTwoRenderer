@@ -5,6 +5,7 @@ cards = {}
 players = []
 canvsize = [500,500]
 nword = true;
+actions = [];
 function preload(){
     for (var x = 0; x<52; x++){
         cs.push(loadImage('cards/'+number[floor(x/4)]+suit[x%4]+'.png'))
@@ -30,8 +31,9 @@ y = 0
 function draw(){
     background(7,99,36);
     if(actions.length > 0){
-        actions.forEach(x => x.update())
+        actions.forEach(x => x.update());
     }
+    players.forEach(x => x.display());
 }
 function Card(v,s){
     this.value = v;
