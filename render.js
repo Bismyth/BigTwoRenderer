@@ -14,7 +14,7 @@ function preload(){
     }
 }
 function setup(){
-    createCanvas(canvsize[0],canvsize[1]);
+    createCanvas(canvsize[0],canvsize[1],WEBGL);
     for (var x = 0; x<13; x++){
         for (var y = 0; y<4; y++){
             val = number[x]+suit[y];
@@ -36,6 +36,7 @@ function draw(){
     if(actions.length > 0){
         actions.forEach(x => x.update());
     }
+    rotateZ(millis() / 1000);
     pile.display();
     players.forEach(x => x.display());
     
@@ -77,7 +78,6 @@ function Mover(card){
     this.mx = (cent[0] - card.x)/speed;
     this.my = (cent[1] - card.y)/speed;
     this.exist = speed;
-    console.log(this,actions[0]);
     this.update = function(){
         this.x += this.mx;
         this.y += this.my;
