@@ -6,6 +6,7 @@ players = []
 canvsize = [500,500]
 nword = true;
 actions = [];
+speed = 80;
 function preload(){
     for (var x = 0; x<52; x++){
         cs.push(loadImage('cards/'+number[floor(x/4)]+suit[x%4]+'.png'))
@@ -65,13 +66,13 @@ function play(player,card,speed){
     player.cards = player.cards.filter(function(value){return value != card;});
     actions.push(new Mover(cards[card],speed));
 }
-function Mover(card,speed){
+function Mover(card){
     this.card = card.value;
     this.x = card.x;
     this.y = card.y;
-    this.mx = (canvsize[0]/2 - card.x)/(60*(1/speed));
-    this.my = (canvsize[1]/2 - card.y)/(60*(1/speed));
-    this.exist = 60*(1/speed);
+    this.mx = (canvsize[0]/2 - card.x)/speed;
+    this.my = (canvsize[1]/2 - card.y)/speed;
+    this.exist = speed;
     console.log(this.x,this,y,this.mx,this.my,this.exist);
     this.update = function(){
         this.x += this.mx;
@@ -79,7 +80,7 @@ function Mover(card,speed){
         cards[this.card].draw(this.x,this.y);
         this.exist --;
         if(this.exist <= 0){
-            actions = actions.filter(function(value){return value != this;});
+            actions.shift();
             pile.card = this.card;
         }
     }
