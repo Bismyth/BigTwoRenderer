@@ -36,8 +36,6 @@ x = 0
 y = 0
 function draw(){
     background(7,99,36);
-    translate(width / 2, height / 2);
-    rotate(PI / 3.0);
     if(actions.length > 0){
         actions.forEach(x => x.update());
     }
