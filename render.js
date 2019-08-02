@@ -30,6 +30,7 @@ function setup(){
     players[2].cards = ['2S','5C'];
     players[3].cards = ['3S','6C'];
     cent = [(canvsize[0]-cs[0].width/2)/2,(canvsize[1]-cs[0].height/2)/2];
+    translate(width / 2, height / 2);
 }
 x = 0
 y = 0
