@@ -62,8 +62,8 @@ function Centre(){
     }
 }
 function play(player,card,speed){
-    player.hand = player.hand.filter(function(value){return value != card;});
-    actions.push(new Mover(card,speed));
+    player.cards = player.cards.filter(function(value){return value != card;});
+    actions.push(new Mover(cards[card],speed));
 }
 function Mover(card,speed){
     this.card = card.value;
@@ -74,6 +74,6 @@ function Mover(card,speed){
     this.update = function(){
         this.x += this.mx;
         this.y += this.my;
-        cards[this.card].draw(this.x,this.y)
+        cards[this.card].draw(this.x,this.y);
     }
 }
