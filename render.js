@@ -75,5 +75,8 @@ function Mover(card,speed){
         this.x += this.mx;
         this.y += this.my;
         cards[this.card].draw(this.x,this.y);
+        if(this.x == canvsize[0] && this.y == canvsize[1]){
+            actions = actions.filter(function(value){return value != this;});
+        }
     }
 }
