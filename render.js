@@ -26,8 +26,10 @@ function setup(){
     }
     pile = new Centre();
     players[0].cards = ['0S','AC'];
-    //cent = [(canvsize[0]-cs[0].width)/2,(canvsize[1]-cs[0].height)/2];
-    cent = [700,700];
+    players[1].cards = ['1S','4C'];
+    players[2].cards = ['2S','5C'];
+    players[3].cards = ['3S','6C'];
+    cent = [(canvsize[0]-cs[0].width)/2,(canvsize[1]-cs[0].height)/2];
 }
 x = 0
 y = 0
@@ -36,9 +38,8 @@ function draw(){
     if(actions.length > 0){
         actions.forEach(x => x.update());
     }
-    rotateZ(millis() / 1000);
     pile.display();
-    players.forEach(x => x.display());
+    players.forEach(x => x.display(), rotateZ(90));
     
 }
 function Card(v,s){
@@ -56,7 +57,7 @@ function Player (n) {
     this.y = 0;
     this.pn = n;
     this.display = function () {
-        this.cards.forEach((x,y) => cards[x].draw(72*y,110*this.pn))
+        this.cards.forEach((x,y) => cards[x].draw(cent[0],cent[1]))
     }
 }
 function Centre(){
