@@ -40,7 +40,7 @@ function draw(){
         actions.forEach(x => x.update());
     }
     pile.display();
-    players.forEach(x => x.display(),rotate(PI/2));
+    players.forEach(x => x.display(),rotateZ(PI/2));
 }
 function Card(v,s){
     this.value = v;
