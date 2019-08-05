@@ -57,7 +57,7 @@ function Player (n) {
     this.y = 0;
     this.pn = n;
     this.display = function () {
-        this.cards.forEach((x,y) => cards[x].draw((36*y)-100,300-cs[0].height))
+        this.cards.forEach((x,y) => cards[x].draw(0,0))
     }
 }
 function Centre(){
