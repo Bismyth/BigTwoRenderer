@@ -25,10 +25,6 @@ function setup(){
         players.push(new Player(x));
     }
     pile = new Centre();
-    players[0].cards = ['0S','AC'];
-    players[1].cards = ['7S','4C'];
-    players[2].cards = ['2S','5C'];
-    players[3].cards = ['3S','6C'];
     cent = [(cs[0].length/2)*-1,(cs[0].height/2)*-1];
     translate(width / 2, height / 2);
 }
@@ -40,7 +36,8 @@ function draw(){
         actions.forEach(x => x.update());
     }
     pile.display();
-    players.forEach(x => x.display(),rotateZ(PI/2));
+    players.forEach(x => x.display());
+    image(cs['0S'].source,200,200).rotate(90);
 }
 function Card(v,s){
     this.value = v;
