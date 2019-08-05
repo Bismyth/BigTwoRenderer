@@ -4,7 +4,7 @@ number = '34567890JQKA2';
 cards = {}
 players = []
 canvsize = [600,600];
-cent = [];
+cent = [0,0];
 nword = true;
 actions = [];
 speed = 40;
@@ -15,6 +15,8 @@ function preload(){
 }
 function setup(){
     createCanvas(canvsize[0],canvsize[1]);
+    angleMode(DEGREES);
+    imageMode(CENTER);
     for (var x = 0; x<13; x++){
         for (var y = 0; y<4; y++){
             val = number[x]+suit[y];
@@ -29,18 +31,17 @@ function setup(){
     players[1].hand = ['2S','2D']
     players[2].hand = ['3S','3D']
     players[3].hand = ['4S','4D']
-    cent = [(cs[0].length/2)*-1,(cs[0].height/2)*-1];
-    translate(width / 2, height / 2);
 }
 x = 0
 y = 0
 function draw(){
     background(7,99,36);
+    translate(width / 2, height / 2);
     if(actions.length > 0){
         actions.forEach(x => x.update());
     }
     pile.display();
-    players.forEach(x => {x.display(); rotate(PI/2)});
+    players.forEach(x => {x.display(); rotate(90)});
 }
 function Card(v,s){
     this.value = v;
@@ -57,7 +58,7 @@ function Player (n) {
     this.y = 0;
     this.pn = n;
     this.display = function () {
-        this.cards.forEach((x,y) => cards[x].draw(0,0))
+        this.cards.forEach((x,y) => cards[x].draw(0+10*y,250))
     }
 }
 function Centre(){
