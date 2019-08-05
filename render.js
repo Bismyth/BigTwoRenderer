@@ -14,7 +14,7 @@ function preload(){
     }
 }
 function setup(){
-    createCanvas(canvsize[0],canvsize[1],WEBGL);
+    createCanvas(canvsize[0],canvsize[1]);
     for (var x = 0; x<13; x++){
         for (var y = 0; y<4; y++){
             val = number[x]+suit[y];
@@ -25,6 +25,10 @@ function setup(){
         players.push(new Player(x));
     }
     pile = new Centre();
+    players[0].hand = ['0S','0D']
+    players[1].hand = ['2S','2D']
+    players[2].hand = ['3S','3D']
+    players[3].hand = ['4S','4D']
     cent = [(cs[0].length/2)*-1,(cs[0].height/2)*-1];
     translate(width / 2, height / 2);
 }
@@ -36,8 +40,7 @@ function draw(){
         actions.forEach(x => x.update());
     }
     pile.display();
-    players.forEach(x => x.display());
-    image(cards['0S'].source,200,200).rotate(90);
+    players.forEach(x => {x.display(); rotate(PI/2)});
 }
 function Card(v,s){
     this.value = v;
