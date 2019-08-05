@@ -37,7 +37,7 @@ function draw(){
     }
     pile.display();
     players.forEach(x => x.display());
-    image(cs['0S'].source,200,200).rotate(90);
+    image(cards['0S'].source,200,200).rotate(90);
 }
 function Card(v,s){
     this.value = v;
